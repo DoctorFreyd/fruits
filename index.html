@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Fruits</title>
+  </head>
+  <body>
+    <div class="gradient-background">
+      <div class="gradient-sphere sphere-1"></div>
+      <div class="gradient-sphere sphere-2"></div>
+      <div class="gradient-sphere sphere-3"></div>
+      <div class="glow"></div>
+      <div class="grid-overlay"></div>
+      <div class="noise-overlay"></div>
+      <div class="particles-container" id="particles-container"></div>
+    </div>
+
+    <div class="content-container" style="background:rgba(0, 0, 0, 0.3);" id="game">
+      <div id="form">
+      <h1>Fruit's World</h1>
+      <div>
+        <input id="fruit-input" class="input" placeholder="Write Fruit's name " value="" />
+        <button class="btn" onclick="addClick()">Add</button>
+      </div>
+      <div>
+      <p>
+        Hi Everyone Welcom to Fruit's World. I hope that you will enjoy it, have a Fun...
+      </p>
+      </div>
+      <div style="margin-bottom: 300px;">
+      <select id="fruit-select" class="select" style="min-width:200px">
+        <option selected>Select the Fruit</option>
+        <option value="apple" id="apple">Apple <span onclick="removeFruit(event)">🗑️</span></option>
+        <option value="pear" id="pear">Pear <span onclick="removeFruit(event)">🗑️</span></option>
+      </select>
+      </div>
+      <div>
+        <button class="btn" onclick="start()">Start</button>
+      </div>
+    </div>
+      </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="./animation.js"></script>
+  <script type="text/javascript" src="./fruitsData.js"></script>
+  <script type="text/javascript" src="./logic.js"></script>
+  <script type="text/javascript" src="./game.js"></script>
+</html>
