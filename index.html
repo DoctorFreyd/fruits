@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css" />
-    <title>Fruits</title>
-  </head>
-  <body>
-    <div class="gradient-background">
-      <div class="gradient-sphere sphere-1"></div>
-      <div class="gradient-sphere sphere-2"></div>
-      <div class="gradient-sphere sphere-3"></div>
-      <div class="glow"></div>
-      <div class="grid-overlay"></div>
-      <div class="noise-overlay"></div>
-      <div class="particles-container" id="particles-container"></div>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Catcher Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Setup Screen -->
+        <div id="setup-screen" class="screen active">
+            <h1>Fruit Catcher</h1>
+            <div class="setup-container">
+                <div class="input-group">
+                    <label for="fruit-input">Enter a fruit name:</label>
+                    <input type="text" id="fruit-input" placeholder="e.g. Apple">
+                    <button id="add-fruit-btn">Add Fruit</button>
+                    <p id="validation-message" class="error-message"></p>
+                </div>
+                
+                <div class="fruit-list-container">
+                    <label for="fruit-list">Your Fruit Collection:</label>
+                    <div id="fruit-list"></div>
+                    <p id="list-info">Add at least 5 fruits to start (maximum 10)</p>
+                </div>
+                
+                <button id="start-game-btn" disabled>Start Game</button>
+            </div>
+        </div>
 
-    <div class="content-container" style="background:rgba(0, 0, 0, 0.3);" id="game">
-      <div id="form">
-      <h1>Fruit's World</h1>
-      <div>
-        <input id="fruit-input" class="input" placeholder="Write Fruit's name " value="" />
-        <button class="btn" onclick="addClick()">Add</button>
-      </div>
-      <div>
-      <p>
-        Hi Everyone Welcom to Fruit's World. I hope that you will enjoy it, have a Fun...
-      </p>
-      </div>
-      <div style="margin-bottom: 300px;">
-      <select id="fruit-select" class="select" style="min-width:200px">
-        <option selected>Select the Fruit</option>
-        <option value="apple" id="apple">Apple <span onclick="removeFruit(event)">🗑️</span></option>
-        <option value="pear" id="pear">Pear <span onclick="removeFruit(event)">🗑️</span></option>
-      </select>
-      </div>
-      <div>
-        <button class="btn" onclick="start()">Start</button>
-      </div>
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-info">
+                <div class="target-fruit">
+                    <span>Target Fruit:</span>
+                    <span id="target-fruit-name"></span>
+                </div>
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="level">Level: <span id="level">1</span></div>
+                <div class="timer">Time: <span id="timer">0</span>s</div>
+            </div>
+            
+            <div id="game-area">
+                <div id="crate"></div>
+            </div>
+            
+            <div id="game-over" class="hidden">
+                <h2>Game Over!</h2>
+                <p>Your final score: <span id="final-score">0</span></p>
+                <button id="play-again-btn">Play Again</button>
+            </div>
+        </div>
     </div>
-      </div>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="./animation.js"></script>
-  <script type="text/javascript" src="./fruitsData.js"></script>
-  <script type="text/javascript" src="./logic.js"></script>
-  <script type="text/javascript" src="./game.js"></script>
+    
+    <script src="script.js"></script>
+</body>
 </html>
