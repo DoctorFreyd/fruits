@@ -147,8 +147,7 @@ function addFruit() {
     showValidationError("Maximum 10 fruits allowed")
     return
   }
-
-  // New validation: Check if fruit exists in fruitIcons
+  
   if (!fruitIcons[fruitName]) {
     showValidationError("That fruit is not available in our store")
     return
@@ -303,9 +302,9 @@ function spawnFruit() {
 
   gameArea.appendChild(fruit)
 
-  // Animate the fruit falling with consistent speed based on level
+  // Animate the fruit falling
   let posY = -50
-  const fallSpeed = level + 1 // Speed increases with level (level 1 = 2px/frame, level 2 = 3px/frame, etc.)
+  const fallSpeed = level + 1 // Speed increases with level
 
   const fallInterval = setInterval(() => {
     if (isGameOver) {

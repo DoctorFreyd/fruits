@@ -3,56 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruit Catcher Game</title>
+    <title>Fruit's World</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sidebar.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Setup Screen -->
-        <div id="setup-screen" class="screen active">
-            <h1>Fruit Catcher</h1>
-            <div class="setup-container">
-                <div class="input-group">
-                    <label for="fruit-input">Enter a fruit name:</label>
-                    <input type="text" id="fruit-input" placeholder="e.g. Apple">
-                    <button id="add-fruit-btn">Add Fruit</button>
-                    <p id="validation-message" class="error-message"></p>
+    <div class="layout-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Customize</h3>
+                <button id="toggle-sidebar" class="toggle-btn" aria-label="Toggle Sidebar">
+                    <span></span>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Color Picker -->
+                <div class="control-group">
+                    <label for="bg-color">Background Color:</label>
+                    <input type="color" id="bg-color" value="#f5f7fa">
                 </div>
                 
-                <div class="fruit-list-container">
-                    <label for="fruit-list">Your Fruit Collection:</label>
-                    <div id="fruit-list"></div>
-                    <p id="list-info">Add at least 5 fruits to start (maximum 10)</p>
+                <!-- Background Image URL -->
+                <div class="control-group">
+                    <label for="bg-image-url">Background Image URL:</label>
+                    <input type="text" id="bg-image-url" placeholder="Enter image URL">
+                    <button id="apply-bg-image">Apply</button>
+                    <button id="clear-bg-image">Clear</button>
                 </div>
                 
-                <button id="start-game-btn" disabled>Start Game</button>
+                <!-- Font Selector -->
+                <div class="control-group">
+                    <label for="font-selector">Font:</label>
+                    <select id="font-selector">
+                        <option value="default">Default Font</option>
+                        <option value="Roboto">Roboto</option>
+                        <option value="Montserrat">Montserrat</option>
+                        <option value="Oswald">Oswald</option>
+                        <option value="Playfair Display">Playfair Display</option>
+                        <option value="Quicksand">Quicksand</option>
+                        <option value="Lato">Lato</option>
+                        <option value="Open Sans">Open Sans</option>
+                        <option value="Poppins">Poppins</option>
+                        <option value="Dancing Script">Dancing Script</option>
+                        <option value="Pacifico">Pacifico</option>
+                    </select>
+                </div>
             </div>
         </div>
-
-        <!-- Game Screen -->
-        <div id="game-screen" class="screen">
-            <div class="game-info">
-                <div class="target-fruit">
-                    <span>Target Fruit:</span>
-                    <span id="target-fruit-name"></span>
+        
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
+            <div class="container">
+                <!-- Setup Screen -->
+                <div id="setup-screen" class="screen active">
+                    <h1>Fruit's World</h1>
+                    <div class="setup-container">
+                        <div class="input-group">
+                            <label for="fruit-input">Enter a fruit name:</label>
+                            <input type="text" id="fruit-input" placeholder="e.g. Apple">
+                            <button id="add-fruit-btn">Add Fruit</button>
+                            <p id="validation-message" class="error-message"></p>
+                        </div>
+                        
+                        <div class="fruit-list-container">
+                            <label for="fruit-list">Your Fruit Collection:</label>
+                            <div id="fruit-list"></div>
+                            <p id="list-info">Add at least 5 fruits to start (maximum 10)</p>
+                        </div>
+                        
+                        <button id="start-game-btn" disabled>Start Game</button>
+                    </div>
                 </div>
-                <div class="score">Score: <span id="score">0</span></div>
-                <div class="level">Level: <span id="level">1</span></div>
-                <div class="timer">Time: <span id="timer">0</span>s</div>
-            </div>
-            
-            <div id="game-area">
-                <div id="crate"></div>
-            </div>
-            
-            <div id="game-over" class="hidden">
-                <h2>Game Over!</h2>
-                <p>Your final score: <span id="final-score">0</span></p>
-                <button id="play-again-btn">Play Again</button>
+
+                <!-- Game Screen -->
+                <div id="game-screen" class="screen">
+                    <div class="game-info">
+                        <div class="target-fruit">
+                            <span>Target Fruit:</span>
+                            <span id="target-fruit-name"></span>
+                        </div>
+                        <div class="score">Score: <span id="score">0</span></div>
+                        <div class="level">Level: <span id="level">1</span></div>
+                        <div class="timer">Time: <span id="timer">0</span>s</div>
+                    </div>
+                    
+                    <div id="game-area">
+                        <div id="crate"></div>
+                    </div>
+                    
+                    <div id="game-over" class="hidden">
+                        <h2>Game Over!</h2>
+                        <p>Your final score: <span id="final-score">0</span></p>
+                        <button id="play-again-btn">Play Again</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
     <script src="script.js"></script>
+    <script src="sidebar.js"></script>
 </body>
 </html>

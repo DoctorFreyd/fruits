@@ -1,0 +1,225 @@
+/* Sidebar Styles */
+:root {
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 0px;
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e0e0e0;
+  --sidebar-header: #f8f9fa;
+  --transition-speed: 0.3s;
+  --main-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-speed) ease;
+  z-index: 1000;
+  overflow-y: auto;
+  font-family: var(--main-font);
+}
+
+.sidebar.collapsed {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--sidebar-header);
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  font-family: var(--main-font);
+}
+
+.toggle-btn {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0;
+  border-radius: 10%;
+}
+
+.toggle-btn span {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn span::before,
+.toggle-btn span::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn span::before {
+  transform: translateY(-6px);
+}
+
+.toggle-btn span::after {
+  transform: translateY(6px);
+}
+
+.sidebar-content {
+  padding: 15px;
+}
+
+.control-group {
+  margin-bottom: 20px;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-family: var(--main-font);
+}
+
+.control-group input,
+.control-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-family: var(--main-font);
+}
+
+.control-group input[type="color"] {
+  height: 40px;
+  padding: 2px;
+}
+
+.control-group button {
+  padding: 8px 12px;
+  background-color: #7c5cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 5px;
+  transition: background-color 0.2s;
+  font-family: var(--main-font);
+}
+
+.control-group button:hover {
+  background-color: #6a4aee;
+}
+
+.control-group button:last-child {
+  background-color: #f44336;
+}
+
+.control-group button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  transition: margin var(--transition-speed) ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--main-font);
+}
+
+.main-content.expanded {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* Mobile toggle button */
+  .mobile-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #7c5cff;
+    color: white;
+    border: none;
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: var(--main-font);
+  }
+
+  .mobile-toggle span {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-toggle span::before,
+  .mobile-toggle span::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-toggle span::before {
+    transform: translateY(-6px);
+  }
+
+  .mobile-toggle span::after {
+    transform: translateY(6px);
+  }
+}
